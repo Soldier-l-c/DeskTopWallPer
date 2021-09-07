@@ -111,7 +111,8 @@ std::wstring WallPaper::GetImagePath()
 		}
 	}
 
-	PathCombine(buffer, programPath.c_str(), (std::to_wstring(time(nullptr)) + L"_image.jpg").c_str());
+	PathCombine(buffer, buffer, (std::to_wstring(time(nullptr)) + L"_image.jpg").c_str());
+
 	return buffer;
 
 }
