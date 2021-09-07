@@ -4,9 +4,15 @@
 std::string UtilBase::UtilUrl::GetUrlFromCommond(int argc, char* argv[])
 {
 	std::string url;
-	if (argc < 2)url =  DEFAULT_IMAGE_URL;
+	if (argc < 2)
+	{
+		url = DEFAULT_IMAGE_URL;
+	}
+	else
+	{
+		url = argv[1];
+	}
 
-	url = argv[1];
 	std::cout << "Get Download url: [" << url << "]" << std::endl;
 
 	return url;
