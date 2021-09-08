@@ -113,8 +113,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Ws2_32.lib;Wldap32.Lib;Crypt32.lib;Version.lib;Wininet.lib;Winhttp.lib;Bcrypt.lib;LIBEAY32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>./lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LIBEAY32.lib;ssleay32.lib;Crypt32.lib;Ws2_32.lib;Wldap32.Lib;libcurl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>./lib;./curl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

@@ -28,27 +28,27 @@ HRESULT WallPaper::SetDesktopWallpaper(const PWSTR pszFile, WallpaperStyle style
 
 		switch (style)
 		{
-		case Tile:
+		case WallpaperStyle::Tile:
 			pszWallpaperStyle = L"0";
 			pszTileWallpaper = L"1";
 			break;
 
-		case Center:
+		case WallpaperStyle::Center:
 			pszWallpaperStyle = L"0";
 			pszTileWallpaper = L"0";
 			break;
 
-		case Stretch:
+		case WallpaperStyle::Stretch:
 			pszWallpaperStyle = L"2";
 			pszTileWallpaper = L"0";
 			break;
 
-		case Fit: // (Windows 7 and later)
+		case WallpaperStyle::Fit: // (Windows 7 and later)
 			pszWallpaperStyle = L"6";
 			pszTileWallpaper = L"0";
 			break;
 
-		case Fill: // (Windows 7 and later)
+		case WallpaperStyle::Fill: // (Windows 7 and later)
 			pszWallpaperStyle = L"10";
 			pszTileWallpaper = L"0";
 			break;

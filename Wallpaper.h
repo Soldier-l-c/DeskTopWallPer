@@ -1,7 +1,7 @@
 #pragma once
 namespace WallPaper
 {
-	enum WallpaperStyle
+	enum class WallpaperStyle
 	{
 		Tile,//∆Ω∆Ã
 		Center,//æ”÷–

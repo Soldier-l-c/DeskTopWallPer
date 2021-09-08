@@ -32,6 +32,7 @@ namespace PathUtils
 		::PathCombine(szDest, szBuffer, lpszCombinePath);
 		return szDest;
 	}
+
 	void CreateDir(const wchar_t* lpszDir, bool bFileDir /*= true*/)
 	{
 		if (!(lpszDir && wcslen(lpszDir)))

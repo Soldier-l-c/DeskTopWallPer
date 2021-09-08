@@ -3,8 +3,6 @@
 #include "./curl/curl.h"
 
 class CurlHelper;
-using namespace std;
-
 typedef struct _WriteDataToFileCbAtom
 {
 	_WriteDataToFileCbAtom() : pUrl(0),pThis(0),hFile(0) {}

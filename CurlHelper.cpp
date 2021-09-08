@@ -1,24 +1,13 @@
 #include "stdafx.h"
 #include "CurlHelper.h"
+using std::cout;
+using std::endl;
 
-#ifdef DEBUG
-#pragma comment(lib,"utils/curl/lib/libcurld.lib")
-#else
-#pragma comment(lib, "curl/lib/libcurl.lib")
-#endif // DEBUG
-#pragma comment(lib, "wbemuuid.lib")
-
-#pragma comment(lib, "Iphlpapi.lib")
-#pragma comment(lib, "Ws2_32.lib")
-#pragma comment(lib, "mpr.lib ")
-#pragma comment(lib, "WtsApi32.lib")
-#pragma comment(lib, "Iphlpapi.lib")
-#pragma comment(lib, "WtsApi32")
 int CurlHelper::Init()
 {
 	static bool bInit = false;
 	if (!bInit)
-	 {
+	{
 		CURLcode ret = curl_global_init(/*CURL_GLOBAL_DEFAULT*/CURL_GLOBAL_ALL);
 		if (ret == CURLE_OK)
 			bInit = true;

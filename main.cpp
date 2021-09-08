@@ -3,6 +3,7 @@
 #include "PathUtils.h"
 #include "Wallpaper.h"
 #include "util.h"
+
 int main(int argc, char* argv[])
 {
 	auto imagePath = WallPaper::GetImagePath();
@@ -11,16 +12,16 @@ int main(int argc, char* argv[])
 	auto imageUrl = UtilBase::UtilUrl::GetUrlFromCommond(argc, argv);
 	int response{ 0 };
 	auto downloadRes = CurlHelper::GetInstance().DownloadToFile(imageUrl.c_str(), imagePath.c_str(), &response);
-	cout << "DownloadToFile response code:[" << response << "]" << endl;
+	std::cout << "DownloadToFile response code:[" << response << "]" << std::endl;
 
-	if (downloadRes && response==200)
+	if (downloadRes && response==200 && PathUtils::IsPathExist(imagePath.c_str()))
 	{
-		cout << endl;
-		cout << WallPaper::SetDesktopWallpaper(const_cast<PWSTR>(imagePath.c_str()), WallPaper::WallpaperStyle::Fill) << endl;
+		std::cout << std::endl;
+		std::cout << "Set wall paper res: ["<< WallPaper::SetDesktopWallpaper(const_cast<PWSTR>(imagePath.c_str()), WallPaper::WallpaperStyle::Fill) <<"]"<< std::endl;
 	}
 	else
 	{
-		cout << "DownloadToFile failed, file: [" << CW2A(imagePath.c_str()) << "] url:[" << imageUrl.c_str()<<"]" << endl;
+		std::cout << "DownloadToFile failed, file: [" << CW2A(imagePath.c_str()) << "] url:[" << imageUrl.c_str()<<"]" << std::endl;
 	}
 
 	system("pause");
