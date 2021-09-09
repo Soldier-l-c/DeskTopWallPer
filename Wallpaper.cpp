@@ -106,7 +106,7 @@ std::wstring WallPaper::GetImagePath()
 		PathUtils::CreateDir(buffer, false);
 		if (!PathUtils::IsPathExist(buffer))
 		{
-			std::cout << "Path is not exist path: [" << buffer<<"]" <<std::endl;
+			COUT_ERROR << "Path is not exist path: [" << buffer<<"]" <<std::endl;
 			return L"";
 		}
 	}

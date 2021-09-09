@@ -13,7 +13,7 @@ std::string UtilBase::UtilUrl::GetUrlFromCommond(int argc, char* argv[])
 		url = argv[1];
 	}
 
-	std::cout << "Get Download url: [" << url << "]" << std::endl;
+	COUT_INFO << "Get Download url: [" << url << "]" << std::endl;
 
 	return url;
 }

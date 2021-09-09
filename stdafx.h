@@ -20,6 +20,7 @@
 #include <map>
 #include <list>
 #include <random>
+#include <fstream>
 
 #include <intshcut.h>
 #include <shobjidl_core.h>
@@ -41,5 +42,8 @@
 #include <time.h>
 #include <stdio.h>
 #include <Winternl.h>
-
+#define INFO_ 20
+#define ERROR_ 35
+#define COUT_INFO std::cout<<time(nullptr)<<"  "<<std::to_string(INFO_)+"\t"
+#define COUT_ERROR std::cout<<time(nullptr)<<"  "<<std::to_string(ERROR_)+"\t"
 #endif // !STDAFX_H

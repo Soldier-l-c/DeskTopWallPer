@@ -37,20 +37,20 @@ BOOL CurlHelper::DownloadToFile(const char* lpszUrl, LPCWSTR lpszDestFile, int* 
 {
 	if (lpszUrl == nullptr || lpszDestFile == nullptr || !(strlen(lpszUrl) || !wcslen(lpszDestFile)))
 	{
-		std::cout << "DownloadToFile, url is empty or dest file is empty.return";
+		COUT_ERROR << "DownloadToFile, url is empty or dest file is empty.return";
 		return 0;
 	}
 
 	auto strUrl = RepalceSpaceWidth20(lpszUrl);
 	lpszUrl = strUrl.c_str();
-	cout << "Download url:" << lpszUrl << endl;
+	COUT_INFO << "Download url:" << lpszUrl << endl;
 
 	if (PathFileExists(lpszDestFile))
 	{
 		auto res = DeleteFile(lpszDestFile);
 		if (!res)
 		{
-			cout << "DownloadToFile, delete file failed.file: [" << CW2A(lpszDestFile) << " ] getlasterror:[" << GetLastError() <<" ]"<< endl;
+			COUT_ERROR << "DownloadToFile, delete file failed.file: [" << CW2A(lpszDestFile) << " ] getlasterror:[" << GetLastError() <<" ]"<< endl;
 		}
 	}
 		
@@ -72,7 +72,7 @@ BOOL CurlHelper::DownloadToFile(const char* lpszUrl, LPCWSTR lpszDestFile, int* 
 		atom.hFile = CreateFile(lpszDestFile, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, 0, NULL);
 		if (atom.hFile == INVALID_HANDLE_VALUE)
 		{
-			cout << "DownloadToFile, create file failed. hfile is INVALID_HANDLE_VALUE, dest file: [" << CW2A(lpszDestFile)<<"]" << endl;
+			COUT_ERROR << "DownloadToFile, create file failed. hfile is INVALID_HANDLE_VALUE, dest file: [" << CW2A(lpszDestFile)<<"]" << endl;
 			break;
 		}
 
