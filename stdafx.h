@@ -42,8 +42,10 @@
 #include <time.h>
 #include <stdio.h>
 #include <Winternl.h>
+#include "util.h"
 #define INFO_ 20
 #define ERROR_ 35
-#define COUT_INFO std::cout<<time(nullptr)<<"  "<<std::to_string(INFO_)+"\t"
-#define COUT_ERROR std::cout<<time(nullptr)<<"  "<<std::to_string(ERROR_)+"\t"
+#define COUT_INFO std::cout<<UtilBase::UtilTime::GetFormatTime()<<"  "<<INFO_ << "  "
+#define COUT_ERROR std::cout<<UtilBase::UtilTime::GetFormatTime()<<"  "<<ERROR_ << "  "
+//#define CALL_ONCE
 #endif // !STDAFX_H

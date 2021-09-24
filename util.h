@@ -1,8 +1,13 @@
 #pragma once
 namespace UtilBase
 {
-	namespace UtilUrl
+	namespace UtilTime
 	{
-		std::string GetUrlFromCommond(int argc, char* argv[]);
+		std::string GetFormatTime();
+	}
+
+	namespace Single
+	{
+		bool IsRunning();
 	}
 }

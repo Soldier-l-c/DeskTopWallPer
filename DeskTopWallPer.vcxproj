@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CommandlineParser.h" />
     <ClInclude Include="CurlHelper.h" />
     <ClInclude Include="LogHelper.h" />
     <ClInclude Include="PathUtils.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="Wallpaper.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CommandlineParser.cpp" />
     <ClCompile Include="CurlHelper.cpp" />
     <ClCompile Include="LogHelper.cpp" />
     <ClCompile Include="main.cpp" />

@@ -7,7 +7,7 @@ public:
 
 private:
 	void __Init();
-	void __Uinit();
+	void __Uninit();
 
 private:
 	std::streambuf* m_pstreambuffer{ nullptr };

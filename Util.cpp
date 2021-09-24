@@ -1,19 +1,26 @@
 #include "stdafx.h"
 #include "util.h"
-#define DEFAULT_IMAGE_URL "https://unsplash.it/1600/900?random"
-std::string UtilBase::UtilUrl::GetUrlFromCommond(int argc, char* argv[])
+#define SINGLE_MUTEX L"Global\\{DE45BDFF-B5D1-4B65-BA78-09EC77CA57A9}"
+
+std::string UtilBase::UtilTime::GetFormatTime()
 {
-	std::string url;
-	if (argc < 2)
+	struct tm local_time {0};
+	char str_time[100];
+	auto begin_time = time(NULL);
+	localtime_s(&local_time, &begin_time);
+	strftime(str_time, sizeof(str_time), "%Y-%m-%d %H:%M:%S", &local_time);
+	return 	str_time;
+}
+
+bool UtilBase::Single::IsRunning()
+{
+	HANDLE hObject = CreateMutex(nullptr, false, SINGLE_MUTEX);
+
+	if (nullptr == hObject || GetLastError() == ERROR_ALREADY_EXISTS)
 	{
-		url = DEFAULT_IMAGE_URL;
-	}
-	else
-	{
-		url = argv[1];
+		if (nullptr != hObject)CloseHandle(hObject);
+		return true;
 	}
 
-	COUT_INFO << "Get Download url: [" << url << "]" << std::endl;
-
-	return url;
+	return false;
 }

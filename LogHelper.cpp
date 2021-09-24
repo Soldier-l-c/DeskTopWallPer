@@ -8,7 +8,7 @@ CLogHelper::CLogHelper(const std::wstring& logFile):m_wstrLogFile(logFile)
 
 CLogHelper::~CLogHelper()
 {
-	__Uinit();
+	__Uninit();
 }
 
 void CLogHelper::__Init()
@@ -21,7 +21,7 @@ void CLogHelper::__Init()
 	std::cout.rdbuf(fileBuf);
 }
 
-void CLogHelper::__Uinit()
+void CLogHelper::__Uninit()
 {
 	if (m_spOfstream)
 	{

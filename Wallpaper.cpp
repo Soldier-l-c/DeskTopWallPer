@@ -1,7 +1,43 @@
 #include "stdafx.h"
 #include "Wallpaper.h"
 #include "PathUtils.h"
+#include "CurlHelper.h"
 using std::wstring;
+
+bool WallPaper::ChangeWallPaper(const std::string& imageUrl)
+{
+	auto res{ false };
+	do
+	{
+		auto imagePath = WallPaper::GetImagePath();
+		if (imagePath.empty())
+			break;
+
+		int response{ 0 };
+		auto downloadRes = CurlHelper::GetInstance().DownloadToFile(imageUrl.c_str(), imagePath.c_str(), &response);
+		COUT_INFO << "DownloadToFile response code:[" << response << "]" << std::endl;
+
+		if (downloadRes && response == 200 && PathUtils::IsPathExist(imagePath.c_str()))
+		{
+			auto setRes = WallPaper::SetDesktopWallpaper(const_cast<const PWSTR>(imagePath.c_str()), WallPaper::WallpaperStyle::Fill);
+			COUT_INFO << "Set wall paper res: [" << setRes << "]" << std::endl;
+			if (setRes != ERROR_SUCCESS)break;
+		}
+		else
+		{
+			COUT_ERROR << "DownloadToFile failed," << "respone code:[" << response << "] file: [" << CW2A(imagePath.c_str()) << "] url:[" << imageUrl.c_str() << "]" << std::endl;
+			break;
+		}
+
+		res = true;
+	} while (false);
+
+	COUT_INFO << "ChangeWallPaper res:[" << res << "]" << std::endl;
+	COUT_INFO << std::endl;
+
+	return res;
+}
+
 HRESULT WallPaper::SetDesktopWallpaper(const PWSTR pszFile, WallpaperStyle style)
 {
 	HRESULT hr = S_OK;
@@ -116,3 +152,4 @@ std::wstring WallPaper::GetImagePath()
 	return buffer;
 
 }
+

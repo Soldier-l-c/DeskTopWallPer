@@ -8,7 +8,7 @@ int CurlHelper::Init()
 	static bool bInit = false;
 	if (!bInit)
 	{
-		CURLcode ret = curl_global_init(/*CURL_GLOBAL_DEFAULT*/CURL_GLOBAL_ALL);
+		CURLcode ret = curl_global_init(CURL_GLOBAL_ALL);
 		if (ret == CURLE_OK)
 			bInit = true;
 	}
@@ -43,7 +43,7 @@ BOOL CurlHelper::DownloadToFile(const char* lpszUrl, LPCWSTR lpszDestFile, int* 
 
 	auto strUrl = RepalceSpaceWidth20(lpszUrl);
 	lpszUrl = strUrl.c_str();
-	COUT_INFO << "Download url:" << lpszUrl << endl;
+	COUT_INFO << "Download url:[" << lpszUrl<<"]" << endl;
 
 	if (PathFileExists(lpszDestFile))
 	{

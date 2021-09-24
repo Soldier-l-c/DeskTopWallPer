@@ -9,6 +9,9 @@ namespace WallPaper
 		Fit, //  ”¶
 		Fill//ÃÓ≥‰
 	};
+
+	bool ChangeWallPaper(const std::string& imageUrl);
 	HRESULT SetDesktopWallpaper(const PWSTR pszFile, WallpaperStyle style);
 	std::wstring GetImagePath();
+
 }
