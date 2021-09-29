@@ -33,7 +33,7 @@ bool WallPaper::ChangeWallPaper(const std::string& imageUrl)
 	} while (false);
 
 	COUT_INFO << "ChangeWallPaper res:[" << res << "]" << std::endl;
-	COUT_INFO << std::endl;
+	COUT_EMPTY_LINE;
 
 	return res;
 }

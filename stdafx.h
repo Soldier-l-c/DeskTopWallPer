@@ -47,5 +47,6 @@
 #define ERROR_ 35
 #define COUT_INFO std::cout<<UtilBase::UtilTime::GetFormatTime()<<"  "<<INFO_ << "  "
 #define COUT_ERROR std::cout<<UtilBase::UtilTime::GetFormatTime()<<"  "<<ERROR_ << "  "
+#define COUT_EMPTY_LINE std::cout << std::endl;
 //#define CALL_ONCE
 #endif // !STDAFX_H

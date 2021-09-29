@@ -73,6 +73,7 @@ BOOL CurlHelper::DownloadToFile(const char* lpszUrl, LPCWSTR lpszDestFile, int* 
 		if (atom.hFile == INVALID_HANDLE_VALUE)
 		{
 			COUT_ERROR << "DownloadToFile, create file failed. hfile is INVALID_HANDLE_VALUE, dest file: [" << CW2A(lpszDestFile)<<"]" << endl;
+			curl_easy_cleanup(curl);
 			break;
 		}
 
@@ -99,6 +100,8 @@ BOOL CurlHelper::DownloadToFile(const char* lpszUrl, LPCWSTR lpszDestFile, int* 
 		if (nRet == CURLE_OK)
 		{
 			curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &nResponse);
+			curl_slist_free_all(pList);
+			curl_easy_cleanup(curl);
 			break;
 		}
 		else
@@ -109,6 +112,7 @@ BOOL CurlHelper::DownloadToFile(const char* lpszUrl, LPCWSTR lpszDestFile, int* 
 			DeleteFile(lpszDestFile);
 		}
 
+		curl_slist_free_all(pList);
 		curl_easy_cleanup(curl);
 	}
 

@@ -150,6 +150,7 @@
     <ClInclude Include="CurlHelper.h" />
     <ClInclude Include="LogHelper.h" />
     <ClInclude Include="PathUtils.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="util.h" />
     <ClInclude Include="Wallpaper.h" />
@@ -165,6 +166,12 @@
     </ClCompile>
     <ClCompile Include="Util.cpp" />
     <ClCompile Include="Wallpaper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DeskTopWallPer.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\13.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
