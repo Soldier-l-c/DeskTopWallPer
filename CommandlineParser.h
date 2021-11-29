@@ -16,7 +16,7 @@ public:
 private:
 	CommandlineParser() = delete;
 	void __OutPutParser();
-
+	
 private:
 	bool m_bIsCallOnce{ false };
 	std::string m_strImageUrl{ DEFAULT_IMAGE_URL };

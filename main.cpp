@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 	while (periodNum-- && res)
 	{
 		res = WallPaper::ChangeWallPaper(parser.GetImageUrl());
-		Sleep(parser.GetPeriodTime());
+		Sleep(res ? parser.GetPeriodTime() : 0);
 	}
 
 	COUT_INFO << "Exit!!!" << std::endl;
